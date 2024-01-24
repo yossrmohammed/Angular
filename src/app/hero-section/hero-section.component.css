@@ -1,0 +1,40 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container-fluid {
+    position: relative;
+}
+
+.info {
+    position: absolute;
+    top: 200px;
+}
+
+.heroSection{
+    background-image: url("https://images.pexels.com/photos/3199036/pexels-photo-3199036.jpeg");
+    background-size:cover ;
+    background-position: center;
+    
+    
+}
+h1 {
+    
+    font-size: 72px;
+    font-weight: bold;
+    color: white;
+}
+
+p {
+    font-size: 36px;
+    color: white;
+}
+
+.btn {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+}
