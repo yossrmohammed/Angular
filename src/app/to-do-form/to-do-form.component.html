@@ -1,0 +1,13 @@
+
+<!--child component-->
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Add task</mat-label>
+      <input matInput #Task maxlength="256" placeholder="Ex. Done Angular Task">
+      <mat-hint align="start"><strong></strong> </mat-hint>
+      <mat-hint align="end">{{Task.value.length}} / 256</mat-hint>
+
+    </mat-form-field>
+          <button mat-raised-button color="accent" (click)="addTask(Task.value, $event)">Add</button>
+  </form>

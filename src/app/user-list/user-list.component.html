@@ -1,0 +1,8 @@
+<mat-grid-list cols="2"  rowHeight="500px">
+    @for (item of userData; track item.id) {
+    <mat-grid-tile>
+        <app-user-card [cardData]="item"></app-user-card>
+    </mat-grid-tile>
+}
+  </mat-grid-list>
+

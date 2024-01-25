@@ -1,0 +1,21 @@
+<div class="container ">
+
+<mat-card class="example-card">
+    <mat-card-header>
+
+      <mat-card-title>{{cardData.username}}</mat-card-title>
+      
+    </mat-card-header>
+    <img mat-card-image [src]="cardData.image" class="img">
+   
+    <i class="fa-solid fa-star" [ngClass]="cardData.is_verified ?'fa-star-verified' : 'fa-star-notVerified'"></i>
+    <mat-card-content>
+      <p>
+        {{cardData.email}}
+      </p>
+      <p>{{cardData.phone}}</p>
+    </mat-card-content>
+
+  </mat-card>
+
+  </div>

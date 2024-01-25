@@ -1,0 +1,8 @@
+<!--child component-->
+
+<mat-list role="list">
+    <mat-list-item role="listitem">{{taskItem.task}}
+        <button mat-raised-button color="warn" (click)="deleteTask(taskItem.id, $event)">Delete</button>
+    </mat-list-item>
+  </mat-list>
+  

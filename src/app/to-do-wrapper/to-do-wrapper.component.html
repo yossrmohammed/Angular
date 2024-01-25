@@ -1,0 +1,12 @@
+<!-- parent component-->
+
+
+
+<!--child component-->
+
+<app-to-do-form (sendToParent)="receiveTask($event)"></app-to-do-form>
+
+<!--child component-->
+@for (task of tasks; track task.id){
+<app-to-do-list [taskItem]="task" (sendToParent)="deleteTask($event)"></app-to-do-list>
+}
