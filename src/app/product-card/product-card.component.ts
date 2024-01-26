@@ -5,6 +5,8 @@ import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-card',
   standalone: true,
@@ -14,4 +16,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductCardComponent {
 @Input() productData!:ProductInterface
+constructor(private router : Router){}
+getMoreDetails(id:Number){
+  this.router.navigate(['prduct-details', id])
+  
+
+}
 }
