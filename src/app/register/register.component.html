@@ -1,0 +1,110 @@
+<div class="grid p-2">
+    <div class="col-12 d-flex justify-content-center align-items-center vh-100">
+        <div class="col-md-6 col-lg-6   col-sm-12 ">
+            <div class="text-center border-round-sm font-bold">
+                <p-card header="Register">
+                    
+                    <form  [formGroup]="registerForm"  (ngSubmit)="register()" novalidate>
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="name">Name</label>
+                                <input pInputText 
+                                    id="name" 
+                                    name="name" 
+                                    formControlName="name"
+                                />
+                            </div>
+                        </div>
+                        @if(registerForm.controls['name'].invalid && (registerForm.controls['name'].touched|| registerForm.controls['name'].dirty)) {
+                            <div id="nameHelp" class="form-text text-danger">
+                              @if(registerForm.controls['name'].errors?.['required']){
+                              <small>This field is required</small>
+                              } @if(registerForm.controls['name'].errors?.['minlength']) {
+                              <small>Min. length is 5 character</small>
+                              }
+                            </div>
+                            }
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="email">Email</label>
+                                <input pInputText 
+                                    id="email" 
+                                    name="email" 
+                                    formControlName="email"
+                                />
+                            </div>
+                        </div>
+                        @if(registerForm.controls['email'].invalid && (registerForm.controls['email'].touched|| registerForm.controls['email'].dirty)) {
+                            <div id="emailHelp" class="form-text text-danger">
+                              @if(registerForm.controls['email'].errors?.['required']){
+                              <small>This field is required</small>
+                              } @if(registerForm.controls['email'].errors?.['email']) {
+                              <small>Invalid pattren</small>
+                              }
+                            </div>
+                            }
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="userName">User Name</label>
+                                <input pInputText 
+                                    id="userName" 
+                                    name="userName" 
+                                    formControlName="userName"
+                                />
+                            </div>
+                        </div>
+                        @if(registerForm.controls['userName'].invalid && (registerForm.controls['userName'].touched|| registerForm.controls['userName'].dirty)) {
+                            <div id="userNameHelp" class="form-text text-danger">
+                              @if(registerForm.controls['userName'].errors?.['required']){
+                              <small>This field is required</small>
+                              } @if(registerForm.controls['userName'].errors?.['hasSpace']) {
+                              <small>Min. length is 5 character</small>
+                              }
+                            </div>
+                            }
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="password">Password</label>
+                                <p-password 
+                                    name="password" 
+                                    formControlName="password"
+                                    
+                                ></p-password>
+
+                            </div>
+                        </div>
+                        @if(registerForm.controls['password'].invalid && (registerForm.controls['password'].touched || registerForm.controls['password'].dirty)) {
+                            <div id="userNameHelp" class="form-text text-danger">
+                              @if(registerForm.controls['password'].errors?.['required']){
+                              <small>This field is required</small>
+                              } @if(registerForm.controls['password'].errors?.['minlength']) {
+                              <small>Min. length is 8 character</small>
+                              }
+                              @if(registerForm.controls['password'].errors?.['lowerCase']) {
+                                <small> <br>Must contains at least one lowercase character</small>
+                                }
+                                @if(registerForm.controls['password'].errors?.['upperCase']) {
+                                    <small> <br>Must contains at least one uppercase character</small>
+                                    }
+                                    @if(registerForm.controls['password'].errors?.['digit']) {
+                                        <small> <br>Must contains at least one digit</small>
+                                        }
+                                        @if(registerForm.controls['password'].errors?.['specialCharacter']) {
+                                            <small> <br>Must contains at least one specialCharacter [*&#64;%$#]</small>
+                                            }
+                            </div>
+                            
+                            }
+
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <p-button type="Submit" label="Submit"></p-button>
+                            </div>
+                        </div>
+                    </form>
+                    <p> Already have account? <a href="login">logIn</a></p>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

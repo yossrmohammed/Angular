@@ -1,0 +1,67 @@
+<div class="grid p-2">
+    <div class="col-12 d-flex justify-content-center align-items-center vh-100">
+        <div class="col-6">
+            <div class="text-center border-round-sm font-bold">
+                <p-card header="Log in">
+                    <form  #logInForm (ngSubmit)="logIn(logInForm)" novalidate>
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="email">Email</label>
+                                <input pInputText 
+                                    id="email" 
+                                    name="email" 
+                                    [(ngModel)]="logInFormValues.email"
+                                    #email="ngModel"
+                                    required
+                                    pattern="[a-zA-Z0-9._%+-]+@gmail+.com"
+                                    
+                                />
+                                @if (email.invalid && (email.touched || email.dirty)) {
+                                    <div id="emailHelp" class="form-text text-danger">
+                                        @if(email.errors?.['required']){
+                                            <small>This field is required</small>
+                                        } 
+                                        @if(email.errors?.['pattern']) {
+                                            <small>Invalid pattern</small>
+                                        } 
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <label for="password">Password</label>
+                                <p-password 
+                                    name="password" 
+                                    [(ngModel)]="logInFormValues.password"
+                                    required
+                                    id="password"
+                                    #password="ngModel"
+                                    
+                                ></p-password>
+                                @if (password.invalid && (password.touched || password.dirty)) {
+                                    <div id="passwordHelp" class="form-text text-danger">
+                                        @if(password.errors?.['required']){
+                                            <small>This field is required</small>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        @if (isValid) {
+                            <div class="form-text text-danger">
+                                <small >Please fill in all required fields correctly.</small>
+                            </div>
+                        }
+                        <div class="row justify-content-center">
+                            <div class="col-8 p-2">
+                                <p-button type="Submit" label="Submit"></p-button>
+                            </div>
+                        </div>
+                    </form>
+                    <p> Don't have an account? <a href="register">Register</a></p>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>
