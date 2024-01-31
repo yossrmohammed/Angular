@@ -4,16 +4,21 @@ import productData from '../../../products-list.json'
 import { ProductInterface } from '../interfaces/product-interface';
 
 import { FormsModule } from '@angular/forms';
+import { ProductsService } from '../services/products.service';
+
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductCardComponent,FormsModule],
+  imports: [ProductCardComponent,FormsModule,],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-  products:ProductInterface[]= productData;
+  products!:ProductInterface[]
+  constructor(private productServices: ProductsService){}
   ngOnInit(): void{
+    this.productServices.getAllproducts().subscribe((res:any)=> this.products=res.products)
     console.log(this.products)
+
   }
 }

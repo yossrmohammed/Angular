@@ -36,9 +36,7 @@
     <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
         
         <span class="text-2xl font-semibold">{{ '$' + productDetails.price}}</span>
-        <p-inputNumber [(ngModel)]="quantity" [min]="1"  [style]="{'width': '4rem'}" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical" decrementButtonClass="p-button-Primary"
-        incrementButtonClass="p-button-Primary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
-       <button pButton icon="pi pi-shopping-cart" class="md:align-self-end mb-2 p-button-rounded" ></button> 
+       <button pButton icon="pi pi-shopping-cart" class="md:align-self-end mb-2 p-button-rounded" (click)="addToCart(productDetails.id)"></button> 
     </div>
         
         </div>

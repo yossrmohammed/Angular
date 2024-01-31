@@ -18,7 +18,13 @@
         <div class="d-flex" >
 
           <button type="button" class="btn btn-outline-primary me-2" (click)="goToLogIn()">Login</button>
-          <button type="button" class="btn btn-outline-primary" (click)="goToRegister()">Register</button>
+          <button type="button" class="btn btn-outline-primary me-2"  (click)="goToRegister()">Register</button>
+          @if (itemsInCart > 0) {
+            <p-tag  >{{itemsInCart}}</p-tag>
+          }
+          
+
+          <button pButton icon="pi pi-shopping-cart" class="md:align-self-end mb-2 p-button-rounded" (click)="goToCart()"></button> 
         </div>
       </div>
     </div>
